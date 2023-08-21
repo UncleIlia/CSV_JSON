@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XML_Parser {
+public class XMLParser {
     public List<Employee> parseXML(String fileName) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
@@ -22,12 +22,11 @@ public class XML_Parser {
             Node node = nodeList.item(i);
             if (Node.ELEMENT_NODE == node.getNodeType()) {
                 Element element = (Element) node;
-                long id = Integer.parseInt(element.getAttribute("id"));
-                Employee employee = new Employee(Integer.parseInt(element.getAttribute("id")),
-                        element.getAttribute("firstName"),
-                        element.getAttribute("lastName"),
-                        element.getAttribute("country"),
-                        Integer.parseInt(element.getAttribute("age")));
+                Employee employee = new Employee(Integer.parseInt(element.getElementsByTagName("id").item(0).getTextContent()),
+                        element.getElementsByTagName("firstName").item(0).getTextContent(),
+                        element.getElementsByTagName("lastName").item(0).getTextContent(),
+                        element.getElementsByTagName("country").item(0).getTextContent(),
+                        Integer.parseInt(element.getElementsByTagName("age").item(0).getTextContent()));
                 list.add(employee);
             }
         }

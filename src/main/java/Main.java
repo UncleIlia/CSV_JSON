@@ -2,10 +2,9 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
+    public static void main(String[] args) throws Exception {
         String[] columnMapping = {"id", "firstName", "lastName", "country", "age"};
         String fileName = "data.csv";
 //        CSV_FileCreator csv_fileCreator = new CSV_FileCreator();
@@ -17,8 +16,12 @@ public class Main {
 //        ToJSON toJSON = new ToJSON();
 //        toJSON.listToJSON(list, "data.json");
 
-        XML_Parser xml_parser = new XML_Parser();
-        System.out.println(xml_parser.parseXML("data.xml"));
+//        XMLParser xml_parser = new XMLParser();
+//        ToJSON toJSON = new ToJSON();
+//        toJSON.listToJSON(xml_parser.parseXML("data.xml"), "data2.json");
+
+        JSONtoObject jsoNtoObject = new JSONtoObject();
+        System.out.println(jsoNtoObject.jsonToList("data.json"));
 
     }
 }

@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CSV_Parser {
+public class CSVParser {
     public List<Employee> parseCSV(String[] columnMapping, String fileName) {
 
         List<Employee> list = new ArrayList<>();

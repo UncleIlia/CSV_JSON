@@ -3,7 +3,7 @@ import com.opencsv.CSVWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class CSV_FileCreator {
+public class CSVFileCreator {
     public void createCSV (String fileName){
         try (CSVWriter writer = new CSVWriter(new FileWriter(fileName, true))){
             String[] employee1 = "1,John,Smith,USA,25".split(",");
