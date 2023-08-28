@@ -25,13 +25,9 @@ public class JSONtoObject {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         JSONParser parser = new JSONParser();
-        Object object = parser.parse(readString(fileName));
-        JSONObject jsonObject = (JSONObject) object;
-        JSONArray jsonArray = (JSONArray) jsonObject.get("Employee");
-
-        for (Object it: jsonArray) {
-            JSONObject object1 = (JSONObject) it;
-            Employee employee = gson.fromJson(object1.toString(), Employee.class);
+        JSONArray jsonArray = (JSONArray) parser.parse(readString(fileName));
+        for (Object o : jsonArray) {
+            Employee employee = gson.fromJson(o.toString(), Employee.class);
             list.add(employee);
         }
         return list;

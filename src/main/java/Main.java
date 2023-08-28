@@ -22,6 +22,5 @@ public class Main {
 
         JSONtoObject jsoNtoObject = new JSONtoObject();
         System.out.println(jsoNtoObject.jsonToList("data.json"));
-
     }
 }
